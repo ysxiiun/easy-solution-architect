@@ -1,0 +1,7 @@
+interface:
+  display_name: "Easy Solution Architect"
+  short_description: "分析项目与过程文档并输出可实施的架构技术规格文档"
+  default_prompt: "Use $easy-solution-architect to analyze the current project and draft or update `.easy-coding/spec/Architect-Spec.md`."
+
+policy:
+  allow_implicit_invocation: true
