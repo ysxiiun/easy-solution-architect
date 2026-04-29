@@ -1,11 +1,17 @@
 ---
 name: easy-solution-architect
-description: 分析当前项目与 .easy-coding 资产，产出或增量更新 .easy-coding/spec/Architect-Spec.md。适用于技术方案、架构设计、Architect-Spec、实施级技术 Spec、基于 Product/UI/Prototype 文档补全架构方案等场景。
+description: 仅当用户显式写出 `$easy-solution-architect`、`easy-solution-architect` 或明确要求加载 Easy Solution Architect skill 时使用；不要基于技术方案、架构设计、Architect-Spec 或实施级技术 Spec 提示自动加载。本 skill 分析当前项目与 .easy-coding 资产，产出或增量更新 .easy-coding/spec/Architect-Spec.md。
 ---
 
 # Easy Solution Architect
 
-当用户希望基于当前目录项目代码、`.easy-coding` 过程文档和本轮提示词，输出可直接指导开发的技术方案时，使用此 skill。
+## 显式加载规则
+
+- 本 skill 只能由用户显式点名加载：`$easy-solution-architect`、`easy-solution-architect`，或清楚表达“加载/使用 Easy Solution Architect skill”
+- 不得因为用户提出技术方案、架构设计、Architect-Spec、实施级技术 Spec 或类似提示而自动加载
+- 如果用户没有显式点名，应按普通 agent 流程处理，不应用本 skill 的追问、确认和 Architect-Spec 写入流程
+
+加载后，当用户希望基于当前目录项目代码、`.easy-coding` 过程文档和本轮提示词，输出可直接指导开发的技术方案时，使用此 skill。
 
 这个 skill 的核心工作方式是：
 
@@ -38,9 +44,9 @@ description: 分析当前项目与 .easy-coding 资产，产出或增量更新 .
 4. 问题收敛后统一输出架构方案摘要
 5. 用户确认后写入 `Architect-Spec.md`
 
-## 触发场景
+## 显式加载后的适用场景
 
-当用户提出以下诉求时触发：
+显式加载后，适用于以下诉求：
 
 - 做技术方案、架构设计、技术 Spec、实施方案
 - 输出或更新 `.easy-coding/spec/Architect-Spec.md`
@@ -48,7 +54,7 @@ description: 分析当前项目与 .easy-coding 资产，产出或增量更新 .
 - 分析当前项目的技术栈、目录分层、数据模型、核心模块或 DDL
 - 基于现有项目与需求，补充 API、状态机、事件流、异步处理设计
 
-这个 skill 可以被语义自动触发，也支持用户显式说出 `easy-solution-architect`。
+这个 skill 不允许语义自动触发，只能由用户显式说出 `$easy-solution-architect`、`easy-solution-architect` 或明确要求加载 Easy Solution Architect skill。
 
 ## 默认产物
 

@@ -2,6 +2,16 @@
 
 `easy-solution-architect` 是一个面向 Agent 的架构设计 skill，用于基于当前项目代码、`.easy-coding` 过程文档和用户本轮需求，产出可直接指导开发实施的技术方案，并在用户确认后写入 `.easy-coding/spec/Architect-Spec.md`。
 
+## 触发方式
+
+仅支持显式加载：
+
+- `使用 $easy-solution-architect ...`
+- `加载 easy-solution-architect ...`
+- `使用 Easy Solution Architect skill ...`
+
+普通技术方案、架构设计或 Architect-Spec 描述不会自动加载本 skill，除非用户同时显式点名 Easy Solution Architect。
+
 它适合这样一类场景：产品和交互方向已经初步明确，但技术栈、模块边界、数据模型、API 设计、状态流转和异步机制还没有被系统化收敛。这时它不会一上来就直接写一版“像样但可能不准”的 Spec，而是先做证据分析、识别冲突与缺口，再推动关键决策收敛。
 
 ## Skill 介绍

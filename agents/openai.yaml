@@ -1,7 +1,7 @@
 interface:
   display_name: "Easy Solution Architect"
-  short_description: "分析项目与过程文档并输出可实施的架构技术规格文档"
-  default_prompt: "Use $easy-solution-architect to analyze the current project and draft or update `.easy-coding/spec/Architect-Spec.md`."
+  short_description: "仅显式调用的架构技术规格文档技能"
+  default_prompt: "仅当用户显式写出 `$easy-solution-architect`、`easy-solution-architect` 或明确要求加载 Easy Solution Architect skill 时使用；不要基于普通技术方案、架构设计或 Architect-Spec 提示自动加载。加载后，分析当前项目并起草或更新 `.easy-coding/spec/Architect-Spec.md`。"
 
 policy:
-  allow_implicit_invocation: true
+  allow_implicit_invocation: false
