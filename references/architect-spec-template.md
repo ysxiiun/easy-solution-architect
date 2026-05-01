@@ -27,7 +27,7 @@
 - 既有 Architect-Spec：
 - Product-Spec：
 - UI-Spec：
-- 原型文档与 HTML：
+- 原型说明 / HTML / AI 图片：
 - 用户当前提示词：
 
 ### 2.2 冲突摘要

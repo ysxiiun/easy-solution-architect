@@ -67,7 +67,7 @@ description: 仅当用户显式写出 `$easy-solution-architect`、`easy-solutio
 - 默认语言为中文
 - 默认文档粒度为实施级技术 Spec
 - 若已有 `Architect-Spec.md`，优先增量更新并保留既有结构
-- `Product-Spec.md`、`UI-Spec.md`、`Easy-UI-Prototype.md` 与原型 HTML 默认只读
+- `Product-Spec.md`、`UI-Spec.md`、原型说明、HTML 原型、AI 图片原型与资源索引默认只读
 
 ## 输入发现
 
@@ -78,13 +78,15 @@ description: 仅当用户显式写出 `$easy-solution-architect`、`easy-solutio
 3. `.easy-coding/spec/Product-Spec.md`
 4. `.easy-coding/spec/UI-Spec.md`
 5. `.easy-coding/prototype/Easy-UI-Prototype.md`
-6. `Easy-UI-Prototype.md` 中引用的每一个 HTML 原型文件
+6. `.easy-coding/prototype/index.html`、同目录页面 HTML、`assets/` 与 `images/` 中的原型产物索引
 7. 用户当前提示词
 
 读取规则：
 
 - 先扫描全项目结构，再聚焦与用户需求相关的模块、包、应用或目录
 - `.easy-coding` 缺失时，不要直接阻断；继续基于代码分析，并只对真正缺失的关键输入追问
+- 原型输入只认 `.easy-coding/prototype/` 当前规范路径；若该路径或说明文档缺失，不要自动搜索旧路径或项目根目录下的原型文件，按“无原型输入”继续分析
+- HTML 与图片原型只作为架构输入依据，不作为生产实现来源；图片模式没有可读 HTML 时，以 `.easy-coding/prototype/Easy-UI-Prototype.md` 中的页面说明、图片文件名和提示词摘要作为依据
 - 能从代码、配置、目录、Spec、原型中推出的信息，不要反问用户
 - 对可确认且无冲突的信息，默认内部消化，不主动做大段展示
 - 需要查看固定文档骨架时，读取 [references/architect-spec-template.md](references/architect-spec-template.md)
@@ -122,7 +124,7 @@ description: 仅当用户显式写出 `$easy-solution-architect`、`easy-solutio
 8. 每轮回答后，更新问题规划，继续追问，直到关键疑虑全部解决
 9. 当关键问题都收敛后，再统一输出一版结构化“架构方案摘要”
 10. 用户确认后，再写入 `.easy-coding/spec/Architect-Spec.md`
-11. 写完后，重新对照 `Product-Spec.md`、`UI-Spec.md`、`Easy-UI-Prototype.md` 与原型 HTML 做一轮冲突自检
+11. 写完后，重新对照 `Product-Spec.md`、`UI-Spec.md`、原型说明、HTML 页面和图片页面索引做一轮冲突自检
 12. 最后静默检查章节完整性、路径一致性和文档内自洽性
 
 不要跳过第 6-9 步。用户未确认方案摘要前，不要写 `Architect-Spec.md`。
@@ -284,12 +286,13 @@ D. 其他（请补充）
 - 不适用章节是否明确写为“无”
 - 路径、模块名、技术栈描述是否与代码和输入依据一致
 - 若包含 DDL、接口或状态流转，是否与正文前后自洽
-- 必须重新对照 `Product-Spec.md`、`UI-Spec.md`、`Easy-UI-Prototype.md` 和相关原型 HTML，检查是否存在明显冲突
+- 必须重新对照 `Product-Spec.md`、`UI-Spec.md`、原型说明、HTML 页面和图片页面索引，检查是否存在明显冲突
 
 冲突复核规则：
 
 - 只关注明显冲突，不做无限上纲的吹毛求疵式检查
 - 重点检查：页面流程和模块设计是否冲突、核心对象和字段是否冲突、状态流转是否冲突、关键交互与 API / 异步设计是否冲突
+- 图片模式没有可读 HTML 时，以 `.easy-coding/prototype/Easy-UI-Prototype.md` 中记录的页面说明、图片文件名和提示词摘要作为复核依据
 - 如果没有明显冲突，可以继续正常交付，不必额外制造问题
 - 如果发现明显冲突，必须在输出中单独反馈“冲突复核结果”，指出：
   - 冲突点

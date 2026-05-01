@@ -53,8 +53,10 @@ skill 会优先读取以下信息：
 3. `.easy-coding/spec/Product-Spec.md`
 4. `.easy-coding/spec/UI-Spec.md`
 5. `.easy-coding/prototype/Easy-UI-Prototype.md`
-6. 原型文档中引用的 HTML 原型文件
+6. `.easy-coding/prototype/index.html`、同目录页面 HTML、`assets/` 与 `images/` 中的原型产物索引
 7. 用户当前提示词
+
+原型输入只认 `.easy-coding/prototype/` 当前规范路径；如果该路径或 `.easy-coding/prototype/Easy-UI-Prototype.md` 缺失，不会搜索旧路径或项目根目录下的原型文件，而是按“无原型输入”继续分析。
 
 如果 `.easy-coding` 缺失，它不会立刻中断，而是继续基于代码现状分析，并只对真正会阻断技术决策的问题发问。
 
@@ -97,8 +99,9 @@ skill 会优先读取以下信息：
 
 - `Product-Spec.md`
 - `UI-Spec.md`
-- `Easy-UI-Prototype.md`
+- `.easy-coding/prototype/Easy-UI-Prototype.md`
 - 相关 HTML 原型文件
+- 图片模式下的页面索引、图片文件名和提示词摘要
 
 复核是否存在明显冲突，例如：
 
@@ -120,7 +123,7 @@ skill 会优先读取以下信息：
 - 默认语言为中文
 - 默认文档粒度为实施级技术 Spec
 - 若已有 `Architect-Spec.md`，优先增量更新并尽量保留原结构
-- `Product-Spec.md`、`UI-Spec.md`、原型文档和 HTML 原型默认只读
+- `Product-Spec.md`、`UI-Spec.md`、原型说明、HTML 原型、AI 图片原型与资源索引默认只读
 
 ## 文档骨架
 
